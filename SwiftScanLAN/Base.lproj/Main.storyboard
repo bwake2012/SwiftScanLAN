@@ -50,13 +50,20 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zVE-gK-xwz"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="lBk-VR-9VZ">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GKR-vc-7tF" secondAttribute="bottom" id="TdC-JY-5UU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GKR-vc-7tF" secondAttribute="trailing" id="US0-7y-ZUL"/>
+                            <constraint firstItem="lBk-VR-9VZ" firstAttribute="centerY" secondItem="GKR-vc-7tF" secondAttribute="centerY" id="ZQJ-Yb-xl9"/>
                             <constraint firstItem="GKR-vc-7tF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c0z-fj-3Ha"/>
+                            <constraint firstItem="lBk-VR-9VZ" firstAttribute="centerX" secondItem="GKR-vc-7tF" secondAttribute="centerX" id="f2d-rk-ZAd"/>
                             <constraint firstItem="GKR-vc-7tF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="olJ-2n-7Jc"/>
                         </constraints>
                     </view>
@@ -68,6 +75,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="lBk-VR-9VZ" id="Y39-aA-qXe"/>
                         <outlet property="tableView" destination="GKR-vc-7tF" id="0yj-FT-itr"/>
                     </connections>
                 </viewController>
@@ -97,6 +105,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

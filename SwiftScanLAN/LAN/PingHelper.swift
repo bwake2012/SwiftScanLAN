@@ -29,7 +29,7 @@ class PingHelper: NSObject {
     func go() {
 
         simplePing?.start()
-        perform(#selector(endTime), with: nil, afterDelay: 1)
+        perform(#selector(endTime), with: nil, afterDelay: 0.1)
     }
 }
 

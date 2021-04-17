@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView?
     var connectedDevices: [Device] = []
     var lanScanner: ScanLAN?
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
 
-        lanScanner?.stopScan()
+        stopScanningLAN()
     }
 }
 
@@ -54,9 +55,17 @@ extension ViewController {
 
         lanScanner?.stopScan()
 
+        activityIndicator.startAnimating()
         lanScanner = ScanLAN(with: self)
         connectedDevices = []
+        tableView?.reloadData()
         lanScanner?.startScan()
+    }
+
+    func stopScanningLAN() {
+
+        activityIndicator.stopAnimating()
+        lanScanner?.stopScan()
     }
 }
 
@@ -74,6 +83,8 @@ extension ViewController: ScanLANDelegate {
     func scanLANFinishedScanning() {
 
         print("Scan finished")
+
+        activityIndicator.stopAnimating()
 
         let alert =
             UIAlertController(
